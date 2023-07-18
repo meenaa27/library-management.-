@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}Books{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Books</title>
+</head>
+<body>
+    <h1>Books</h1>
+    <table>
+        <tr>
+            <th>Book ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Quantity</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.id }}</td>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.quantity }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>Add New Book</h2>
+    <form method="post" action="/add_book">
+        <label>Title:</label>
+        <input type="text" name="title" required>
+        <label>Author:</label>
+        <input type="text" name="author" required>
+        <label>Quantity:</label>
+        <input type="number" name="quantity" required>
+        <input type="submit" value="Add Book">
+    </form>
+</body>
+</html>
+{% endblock %}

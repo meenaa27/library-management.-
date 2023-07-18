@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Management System</title>
+    <!-- Include CSS and JS files here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Common header -->
+    <header>
+        <h1>Library Management System</h1>
+        <!-- Navigation menu -->
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('books') }}">Books</a></li>
+                <li><a href="{{ url_for('members') }}">Members</a></li>
+                <li><a href="{{ url_for('issue_book') }}">Issue Book</a></li>
+                <li><a href="{{ url_for('return_book') }}">Return Book</a></li>
+                <li><a href="{{ url_for('search_book') }}">Search Book</a></li>
+                <li><a href="{{ url_for('charge_fee') }}">Charge Fee</a></li>
+                <!-- Add other menu items as needed -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Content block for extending templates -->
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Common footer -->
+    <footer>
+        <p>&copy; 2023 Library Management System. All rights reserved.</p>
+    <p>Contact: info@example.com</p>
+    <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <!-- Add more footer links as needed -->
+    </ul>
+    </footer>
+</body>
+</html>

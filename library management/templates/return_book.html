@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}Return Book{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Return Book</title>
+</head>
+<body>
+    <h1>Return Book</h1>
+    <form method="post" action="/return_book">
+        <label>Transaction ID:</label>
+        <input type="number" name="transaction_id" required>
+        <label>Return Date:</label>
+        <input type="date" name="return_date" required>
+        <input type="submit" value="Return Book">
+    </form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Books</title>
+</head>
+<body>
+    <h1>Search Books</h1>
+    <form method="POST" action="{{ url_for('search') }}">
+        <label for="keyword">Search by Title or Author:</label>
+        <input type="text" name="keyword" id="keyword" required>
+        <button type="submit">Search</button>
+    </form>
+    <hr>
+    {% if books %}
+        <h2>Search Results for '{{ keyword }}':</h2>
+        <ul>
+            {% for book in books %}
+                <li>{{ book.title }} by {{ book.author }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h2>All Transactions</h2>
+    <table>
+        <tr>
+            <th>Transaction ID</th>
+            <th>Book Title</th>
+            <th>Member Name</th>
+            <th>Issue Date</th>
+            <th>Return Date</th>
+            <th>Status</th>
+        </tr>
+        {% for transaction in transactions %}
+        <tr>
+            <td>{{ transaction.id }}</td>
+            <td>{{ transaction.book.title }}</td>
+            <td>{{ transaction.member.name }}</td>
+            <td>{{ transaction.issue_date }}</td>
+            <td>{{ transaction.return_date }}</td>
+            <td>{{ 'Issued' if not transaction.returned else 'Returned' }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

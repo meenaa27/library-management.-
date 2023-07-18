@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}Search Book{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Book</title>
+</head>
+<body>
+    <h1>Search Book</h1>
+    <form method="post" action="/search_book">
+        <label>Title:</label>
+        <input type="text" name="title" required>
+        <label>Author:</label>
+        <input type="text" name="author" required>
+        <input type="submit" value="Search">
+    </form>
+    {% if search_results %}
+    <h2>Search Results</h2>
+    <table>
+        <tr>
+            <th>Book ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Quantity</th>
+        </tr>
+        {% for book in search_results %}
+        <tr>
+            <td>{{ book.id }}</td>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.quantity }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>
+{% endblock %}

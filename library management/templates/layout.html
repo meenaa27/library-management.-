@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Library Management System{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Add other CSS files as needed -->
+</head>
+<body>
+    <!-- Common header -->
+    <header>
+        <h1>Library Management System</h1>
+        <!-- Navigation menu -->
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('books') }}">Books</a></li>
+                <li><a href="{{ url_for('members') }}">Members</a></li>
+                <li><a href="{{ url_for('issue_book') }}">Issue Book</a></li>
+                <li><a href="{{ url_for('return_book') }}">Return Book</a></li>
+                <li><a href="{{ url_for('search_book') }}">Search Book</a></li>
+                <li><a href="{{ url_for('charge_fee') }}">Charge Fee</a></li>
+                <!-- Add other menu items as needed -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Content block for extending templates -->
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Common footer -->
+    <footer>
+        <p>Contact Us: library@example.com | Phone: 123-456-7890</p>
+        <!-- Add other footer content as needed -->
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+    <!-- Add other JS files as needed -->
+</body>
+</html>
